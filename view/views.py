@@ -70,6 +70,23 @@ def query_test_info(request):
     return JsonResponse(response)
 
 @require_http_methods(["GET"])
+def list_test(request):
+    response = {}
+    try:
+        test_infos = Test_info.objects.values(
+          'test_name','test_type', 'device_type', 'sub_id'
+        ).distinct()
+
+        response['list'] = list(test_infos)
+        response['msg'] = 'success'
+        response['error_num'] = 0
+    except  Exception as e:
+        response['msg'] = str(e)
+        response['error_num'] = 1
+
+    return JsonResponse(response)
+
+@require_http_methods(["GET"])
 def add_test_info(request):
     response = {}
     try:
@@ -108,5 +125,5 @@ def add_test_info(request):
 
     return JsonResponse(response)
 
-
-
+def view(request):
+  return render(request, 'index.html')

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>HTML5 Admin Template</title>
+
+	<!-- Google Fonts -->
+	<!--link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700" rel="stylesheet"-->
+
+	<!-- Template Styles -->
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+
+	<!-- CSS Reset -->
+	<link rel="stylesheet" href="../static/css/normalize.css">
+
+	<!-- Milligram CSS minified -->
+	<link rel="stylesheet" href="../static/css/milligram.min.css">
+
+	<!-- Main Styles -->
+	<link rel="stylesheet" href="../static/css/styles.css">
+
+	<!--[if lt IE 9]-->
+	<!--script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script-->
+	<!--[endif]-->
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="row">
+			<div class="column column-30 col-site-title"><a href="#" class="site-title float-left">Cambricon Test</a></div>
+			<div class="column column-40 col-search"><a href="#" class="search-btn fa fa-search"></a>
+				<input type="text" name="" value="" placeholder="Search..." />
+			</div>
+			<div class="column column-30">
+				<div class="user-section"><a href="#">
+					<img src="http://via.placeholder.com/50x50" alt="profile photo" class="circle float-left profile-photo" width="50" height="auto">
+					<div class="username">
+						<h4>Admin</h4>
+						<p>Administrator</p>
+					</div>
+				</a></div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div id="sidebar" class="column" style="max-width: 20%">
+			<h5>性能分析</h5>
+			<ul>
+				<!--li><a href="#"><em class="fa fa-home"></em> Home</a></li-->
+				<li><a href="#charts"><em class="fa fa-bar-chart"></em>SOPA算子历史曲线</a></li>
+				<!--li><a href="#widgets"><em class="fa fa fa-clone"></em> Widgets</a></li>
+				<li><a href="#forms"><em class="fa fa-pencil-square-o"></em> Forms</a></li>
+				<li><a href="#alerts"><em class="fa fa-warning"></em> Alerts</a></li>
+				<li><a href="#buttons"><em class="fa fa-hand-o-up"></em> Buttons</a></li-->
+				<li><a href="#tables"><em class="fa fa-table"></em>SOPA算子数据报表</a></li>
+				<!--li><a href="#grid"><em class="fa fa-columns"></em> Grid</a></li-->
+			</ul>
+		</div>
+		<section id="main-content" class="column column-offset-20">
+			<!--div class="row grid-responsive">
+				<div class="column page-heading">
+					<div class="large-card">
+						<h1>Hey there!</h1>
+						<p class="text-large">This is a big 'ole hero unit, you can use this for calling extra attention to featured content or information.</p>
+						<p>You could also add a call to action button. <em>(it's basically a jumbotron)</em></p>
+						<a class="button">Call to action</a>
+					</div>
+				</div>
+			</div-->
+
+			<!--Charts-->
+			<h5>Charts</h5><a class="anchor" name="charts"></a>
+			<div class="row grid-responsive">
+				<div class="column column-100">
+					<div class="card">
+						<div class="card-title">
+							<h2>SOPA算子历史曲线</h2>
+							<h2></h2>
+							<input type="text" placeholder="清输入testname" id="test_name" style="max-width: 15%">
+							<input type="text" placeholder="请输入testtype" id="test_type" style="max-width: 15%">
+							<input type="text" placeholder="请输入sub_id" id="sub_id" style="max-width: 15%">
+							<input type="text" placeholder="请输入device_type" id="device_type" style="max-width: 15%">
+							<input type="text" placeholder="请输入查询属性" id="viz_property" style="max-width: 15%">
+							<a class="button" id="check_property_trend"> 绘制曲线</a>
+						</div>
+						<div class="card-block" id="mae-chart">
+							<h2 align="center">MAE</h2>
+							<div class="canvas-wrapper">
+								<canvas class="chart" id="line-chart-1" height="auto" width="auto"></canvas>
+							</div>
+						</div>
+						<div class="card-block" id="mse-chart">
+							<h2>MSE</h2>
+							<div class="canvas-wrapper">
+								<canvas class="chart" id="line-chart-2" height="auto" width="auto"></canvas>
+							</div>
+						</div>
+						<div class="card-block" id="ht-chart">
+							<h2>HARDWARE_TIME</h2>
+							<div class="canvas-wrapper">
+								<canvas class="chart" id="line-chart-3" height="auto" width="auto"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!--	<div class="column column-50">
+					<div class="card">
+						<div class="card-title">
+							<h2>Bar Chart</h2>
+						</div>
+						<div class="card-block">
+							<div class="canvas-wrapper">
+								<canvas class="chart" id="bar-chart" height="auto" width="auto"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row grid-responsive">
+				<div class="column column-33">
+					<div class="card">
+						<div class="card-title">
+							<h2>Pie Chart</h2>
+						</div>
+						<div class="card-block">
+							<div class="canvas-wrapper">
+								<canvas class="chart" id="pie-chart" height="auto" width="auto"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column column-33">
+					<div class="card">
+						<div class="card-title">
+							<h2>Radar Chart</h2>
+						</div>
+						<div class="card-block">
+							<div class="canvas-wrapper">
+								<canvas class="chart" id="radar-chart" height="auto" width="auto"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column column-33">
+					<div class="card">
+						<div class="card-title">
+							<h2>Polar Chart</h2>
+						</div>
+						<div class="card-block">
+							<div class="canvas-wrapper">
+								<canvas class="chart" id="polar-area-chart" height="auto" width="auto"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>-->
+			</div>
+
+			<!--Tables-->
+			<h5 class="mt-2">Tables</h5><a class="anchor" name="tables"></a>
+			<div class="row grid-responsive">
+				<div class="column ">
+					<div class="card">
+						<div class="card-title">
+							<h3>SOPA算子数据报表</h3>
+						</div>
+						<h3 align="center">MAE</h3>
+						<div class="card-block" id="showtable_mae" style=" overflow:auto">
+							<table></table>
+						</div>
+						<h3 align="center">MSE</h3>
+						<div class="card-block" id="showtable_mse" style=" overflow:auto">
+							<table></table>
+						</div>
+						<h3 align="center">HARDWARE_TIME</h3>
+						<div class="card-block" id="showtable_hw" style=" overflow:auto">
+							<table></table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<p class="credit">HTML5 Admin Template by <a href="https://www.medialoot.com">Medialoot</a></p>
+		</section>
+	</div>
+
+	<script src="../static/js/chart.min.js"></script>
+	<script src="../static/js/chart-data.js"></script>
+	<script type="text/javascript" src="../static/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../static/js/index.js"></script>
+
+</body>
+</html>
